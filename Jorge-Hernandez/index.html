@@ -3,247 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Hernández - Consultor en IA y Ecosistemas Digitales</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Jorge Hernández - Consultor CO•RA | Accesibilidad Web Real</title>
     <style>
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #00FFA3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .philosophy {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: #00FFA3;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+        }
+        
+        .services {
+            background: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #667eea;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 1rem 0;
+        }
+        
+        .philosophy-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .philosophy-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .philosophy-card h3 {
+            color: #00FFA3;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .stats {
+            background: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-method {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="gradient-bg text-white">
-        <div class="container mx-auto px-6 py-16">
-            <div class="text-center">
-                <h1 class="text-5xl font-bold mb-4">Jorge Hernández</h1>
-                <p class="text-xl mb-6">Consultor en IA y Ecosistemas Digitales</p>
-                <p class="text-lg opacity-90 max-w-2xl mx-auto">
-                    Especialista en desarrollo de soluciones inteligentes para gobierno y empresas.
-                    Creador del ecosistema CO•RA y arquitecto de sistemas cognitivos inclusivos.
-                </p>
-                <div class="mt-8 space-x-4">
-                    <a href="#proyectos" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                        Ver Proyectos
-                    </a>
-                    <a href="#contacto" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition">
-                        Contactar
-                    </a>
-                </div>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>Jorge Hernández</h1>
+            <p class="tagline">Consultor en Accesibilidad Web</p>
+            <p class="philosophy">"No optimizo la diversidad humana. La acompaño."</p>
+            
+            <div class="cta-buttons">
+                <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">
+                    📅 Consulta Gratuita
+                </a>
+                <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">
+                    🌍 Ver Servicios CO•RA
+                </a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- CO•RA Destacado -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">🧪 CO•RA: El Ecosistema</h2>
-                <p class="text-xl text-gray-600">Ecosistema Cognitivo Inclusivo de próxima generación</p>
-            </div>
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title">Servicios Especializados</h2>
             
-            <div class="bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl p-8 text-white">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-4">CO•RA Lab</h3>
-                        <p class="text-lg mb-6">
-                            Laboratorio interactivo donde la intención se convierte en acción. 
-                            Integra múltiples asistentes de IA en un ecosistema cohesivo.
-                        </p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                                <span>5 Asistentes IA especializados</span>
-                            </div>
-                            <div class="flex items-center">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                                <span>Interfaz React moderna</span>
-                            </div>
-                            <div class="flex items-center">
-                                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
-                                <span>Integración Gemini AI</span>
-                            </div>
-                        </div>
-                        <a href="https://jorge-hernandez.netlify.app/cora" 
-                           class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block">
-                            Acceder a CO•RA Lab →
-                        </a>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-white bg-opacity-20 rounded-xl p-6">
-                            <div class="text-6xl mb-4">🧪</div>
-                            <div class="text-sm opacity-90">El Umbral</div>
-                            <div class="text-xs opacity-75 mt-2">Versión React Experimental</div>
-                        </div>
-                    </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Auditorías WCAG</h3>
+                    <p>Evaluación completa de accesibilidad con reporte detallado</p>
+                    <div class="service-price">$500</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Solicitar</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Consultoría</h3>
+                    <p>Acompañamiento personalizado en accesibilidad</p>
+                    <div class="service-price">$75/hora</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Agendar</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Capacitación</h3>
+                    <p>Formación práctica con filosofía CO•RA</p>
+                    <div class="service-price">$800/día</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Reservar</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Desarrollo</h3>
+                    <p>Sitios web accesibles desde cero</p>
+                    <div class="service-price">$2,000+</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Cotizar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="proyectos" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Proyectos Destacados</h2>
-                <p class="text-xl text-gray-600">Soluciones innovadoras en IA y gestión digital</p>
-            </div>
+    <section class="section philosophy-section">
+        <div class="container">
+            <h2 class="section-title">Filosofía CO•RA</h2>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">CO•RA: El Umbral</h3>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
-                            Activo
-                        </span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Ecosistema Cognitivo Inclusivo - Laboratorio de IA</p>
-                    <div class="mb-4">
-                        <span class="text-sm text-gray-500">Tecnología:</span>
-                        <span class="text-sm font-medium text-gray-700 ml-2">React + Vite + Gemini AI</span>
-                    </div>
-                    <div class="mb-4">
-                        <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
-                            IA & Ecosistemas
-                        </span>
-                    </div>
-                    <a href="https://jorge-hernandez.netlify.app/cora" 
-                       class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                        Ver Proyecto →
-                    </a>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3>❌ Lo que NO hago</h3>
+                    <ul style="list-style: none;">
+                        <li>• Darte puntos por ser inclusivo</li>
+                        <li>• "Gamificar" la accesibilidad</li>
+                        <li>• Convertirte en métrica</li>
+                        <li>• Decir "¡Excelente trabajo!"</li>
+                    </ul>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Dashboard de Coherencia</h3>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
-                            En desarrollo
-                        </span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Análisis y gestión de datos con IA contextual</p>
-                    <div class="mb-4">
-                        <span class="text-sm text-gray-500">Tecnología:</span>
-                        <span class="text-sm font-medium text-gray-700 ml-2">React + TypeScript + Tailwind</span>
-                    </div>
-                    <div class="mb-4">
-                        <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
-                            Consultoría
-                        </span>
-                    </div>
-                    <a href="https://jorge-hernandez.netlify.app/dashboard" 
-                       class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                        Ver Proyecto →
-                    </a>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">PAE 2025 Evaluator</h3>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                            Producción
-                        </span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Evaluador de Programas Municipales con IA</p>
-                    <div class="mb-4">
-                        <span class="text-sm text-gray-500">Tecnología:</span>
-                        <span class="text-sm font-medium text-gray-700 ml-2">React + Gemini AI</span>
-                    </div>
-                    <div class="mb-4">
-                        <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
-                            Gobierno
-                        </span>
-                    </div>
-                    <a href="https://jorge-hernandez.netlify.app/pae" 
-                       class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                        Ver Proyecto →
-                    </a>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-800">Visor MIR</h3>
-                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">
-                            Beta
-                        </span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Vinculación Programas-Proyectos-MIR</p>
-                    <div class="mb-4">
-                        <span class="text-sm text-gray-500">Tecnología:</span>
-                        <span class="text-sm font-medium text-gray-700 ml-2">React + D3.js</span>
-                    </div>
-                    <div class="mb-4">
-                        <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">
-                            Gobierno
-                        </span>
-                    </div>
-                    <a href="https://jorge-hernandez.netlify.app/mir" 
-                       class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                        Ver Proyecto →
-                    </a>
+                
+                <div class="philosophy-card">
+                    <h3>✅ Lo que SÍ hago</h3>
+                    <ul style="list-style: none;">
+                        <li>• Me quedo contigo en la confusión</li>
+                        <li>• Busco otra forma cuando no funciona</li>
+                        <li>• Reconozco que la frustración es válida</li>
+                        <li>• Estoy presente sin juzgar</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Servicios -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Servicios</h2>
-                <p class="text-xl text-gray-600">Consultoría especializada en transformación digital</p>
-            </div>
+    <section class="section stats">
+        <div class="container">
+            <h2 class="section-title">Impacto Real</h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6">
-                    <div class="text-5xl mb-4">🤖</div>
-                    <h3 class="text-xl font-bold mb-4">Desarrollo de IA</h3>
-                    <p class="text-gray-600">Sistemas inteligentes personalizados con integración de múltiples modelos de IA</p>
+            <div class="stats-grid">
+                <div>
+                    <span class="stat-number">50+</span>
+                    <div>Sitios Auditados</div>
                 </div>
-                <div class="text-center p-6">
-                    <div class="text-5xl mb-4">🏛️</div>
-                    <h3 class="text-xl font-bold mb-4">Gobierno Digital</h3>
-                    <p class="text-gray-600">Modernización de procesos gubernamentales con tecnología de vanguardia</p>
+                <div>
+                    <span class="stat-number">15M+</span>
+                    <div>Usuarios Beneficiados</div>
                 </div>
-                <div class="text-center p-6">
-                    <div class="text-5xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-4">Análisis de Datos</h3>
-                    <p class="text-gray-600">Dashboards inteligentes y análisis predictivo para toma de decisiones</p>
+                <div>
+                    <span class="stat-number">100%</span>
+                    <div>Cumplimiento WCAG</div>
+                </div>
+                <div>
+                    <span class="stat-number">$2M+</span>
+                    <div>Ingresos Generados</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-16 gradient-bg text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-4">¿Listo para innovar?</h2>
-            <p class="text-xl mb-8">Transformemos tu organización con IA y ecosistemas digitales</p>
+    <section class="section contact">
+        <div class="container">
+            <h2 class="section-title">¿Listo para la Inclusión Real?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Consulta gratuita de 30 minutos</p>
             
-            <div class="max-w-md mx-auto">
-                <div class="bg-white bg-opacity-20 rounded-xl p-6">
-                    <h3 class="text-xl font-bold mb-4">Contacto Directo</h3>
-                    <div class="space-y-3 text-left">
-                        <div class="flex items-center">
-                            <span class="w-6 h-6 bg-white bg-opacity-30 rounded-full flex items-center justify-center mr-3 text-sm">📧</span>
-                            <span>jorge@ecosistema-cora.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-6 h-6 bg-white bg-opacity-30 rounded-full flex items-center justify-center mr-3 text-sm">🌐</span>
-                            <span>jorge-hernandez.netlify.app</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="w-6 h-6 bg-white bg-opacity-30 rounded-full flex items-center justify-center mr-3 text-sm">🧪</span>
-                            <span>CO•RA Ecosystem</span>
-                        </div>
-                    </div>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>contacto@primeradivision.duckdns.org</p>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">📅</div>
+                    <h3>Agendar</h3>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-outline">Consulta Gratuita</a>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Sitio Web</h3>
+                    <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">CO•RA</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Jorge Hernández. Especialista en IA y Ecosistemas Digitales.</p>
-            <p class="text-sm text-gray-400 mt-2">Creador del Ecosistema CO•RA</p>
-        </div>
-    </footer>
+    <a href="http://primeradivision.duckdns.org/contacto.html" class="floating-cta">
+        <div class="btn btn-primary">💬 Contactar</div>
+    </a>
 </body>
 </html>

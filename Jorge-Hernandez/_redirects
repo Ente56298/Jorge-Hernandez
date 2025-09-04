@@ -1,0 +1,9 @@
+
+# Redirects para proyectos
+/cora/* https://cora-lab.netlify.app/:splat 200
+/dashboard/* https://dashboard-coherencia.netlify.app/:splat 200
+/pae/* https://pae-evaluator.netlify.app/:splat 200
+/mir/* https://visor-mir.netlify.app/:splat 200
+
+# Fallback
+/* /index.html 200

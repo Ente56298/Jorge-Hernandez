@@ -3,208 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Hernández - Consultor CO•RA | Accesibilidad Web Real</title>
+    <title>Jorge Hernández | Portfolio Premium v2.1 - Consultor CO•RA</title>
+    <meta name="description" content="Portfolio profesional actualizado de Jorge Hernández, especialista en accesibilidad web CO•RA. Diseños inclusivos premium.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #06d6a0;
+            --dark: #0f172a;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --white: #ffffff;
+            --success: #10b981;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
+            color: var(--gray-800);
+            overflow-x: hidden;
         }
-        
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-            position: relative;
+
+        /* Navigation Premium */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
-        
-        .container {
+
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Premium */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #00FFA3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 600;
         }
-        
-        .tagline {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .philosophy {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+
+        .hero-content .philosophy {
+            font-size: 1.2rem;
+            color: var(--accent);
             font-style: italic;
-            margin-bottom: 3rem;
-            color: #00FFA3;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
         }
-        
-        .cta-buttons {
+
+        .hero-cta {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1rem;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            cursor: pointer;
         }
-        
+
         .btn-primary {
-            background: #28a745;
-            color: white;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 6px 25px rgba(6, 214, 160, 0.4);
         }
-        
+
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(6, 214, 160, 0.5);
         }
-        
+
         .btn-outline {
             background: transparent;
-            color: white;
-            border-color: white;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.4);
         }
-        
+
         .btn-outline:hover {
-            background: white;
-            color: #667eea;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--white);
         }
-        
-        .section {
-            padding: 5rem 0;
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .section-title {
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 28px;
+            padding: 3.5rem;
             text-align: center;
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 3rem;
+            color: var(--white);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
         }
-        
+
+        .hero-card:hover {
+            transform: rotate(0deg) scale(1.08);
+        }
+
+        /* Services Premium */
         .services {
-            background: #f8f9fa;
+            padding: 7rem 0;
+            background: var(--gray-100);
         }
-        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-600);
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
-        
+
         .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border-left: 5px solid #667eea;
-            text-align: center;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
         }
-        
+
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
         }
-        
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1.2rem;
+        }
+
+        .service-description {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
         .service-price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #28a745;
-            margin: 1rem 0;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--success);
+            margin-bottom: 2rem;
         }
-        
-        .philosophy-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-        }
-        
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .philosophy-card {
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .philosophy-card h3 {
-            color: #00FFA3;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
+
+        /* Stats Premium */
         .stats {
-            background: white;
-            text-align: center;
+            padding: 7rem 0;
+            background: var(--gray-900);
+            color: var(--white);
         }
-        
+
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .stat-number {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-        
-        .contact {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
             text-align: center;
         }
-        
-        .contact-methods {
+
+        .stat-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            font-weight: 600;
+        }
+
+        /* Contact Premium */
+        .contact {
+            padding: 7rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
-        
+
         .contact-method {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
         }
-        
+
+        .contact-method:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
         }
-        
+
+        /* Floating CTA */
         .floating-cta {
             position: fixed;
             bottom: 2rem;
@@ -212,167 +371,409 @@
             z-index: 1000;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
-        
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-            
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
                 justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="container">
-            <h1>Jorge Hernández</h1>
-            <p class="tagline">Consultor en Accesibilidad Web</p>
-            <p class="philosophy">"No optimizo la diversidad humana. La acompaño."</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">JH•CO•RA</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Jorge Hernández</h1>
+                <p class="subtitle">Consultor Premium en Accesibilidad Web CO•RA</p>
+                <p class="philosophy">"No optimizo la diversidad humana. La acompaño."</p>
+                
+                <div class="hero-cta">
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">
+                        📅 Consulta Gratuita 30min
+                    </a>
+                    <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">
+                        🌍 Ecosistema CO•RA
+                    </a>
+                </div>
+            </div>
             
-            <div class="cta-buttons">
-                <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">
-                    📅 Consulta Gratuita
-                </a>
-                <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">
-                    🌍 Ver Servicios CO•RA
-                </a>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">♿</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Inclusión Real</h3>
+                    <p style="font-size: 1.1rem;">WCAG 2.1 AA Certified</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section services">
+    <!-- Services Section -->
+    <section class="services" id="servicios">
         <div class="container">
-            <h2 class="section-title">Servicios Especializados</h2>
+            <div class="section-header">
+                <h2 class="section-title">🚀 Servicios Premium Especializados</h2>
+                <p class="section-subtitle">Soluciones profesionales en accesibilidad web con metodología CO•RA comprobada</p>
+            </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🔍</div>
-                    <h3>Auditorías WCAG</h3>
-                    <p>Evaluación completa de accesibilidad con reporte detallado</p>
+                    <h3 class="service-title">Auditorías WCAG 2.1 AA</h3>
+                    <p class="service-description">Evaluación exhaustiva de accesibilidad con reporte detallado, plan de acción específico y seguimiento personalizado.</p>
                     <div class="service-price">$500</div>
-                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Solicitar</a>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Solicitar Auditoría</a>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">💡</div>
-                    <h3>Consultoría</h3>
-                    <p>Acompañamiento personalizado en accesibilidad</p>
+                    <h3 class="service-title">Consultoría Estratégica Premium</h3>
+                    <p class="service-description">Acompañamiento personalizado en implementación de accesibilidad real y sostenible con metodología CO•RA.</p>
                     <div class="service-price">$75/hora</div>
-                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Agendar</a>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Agendar Sesión</a>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">📚</div>
-                    <h3>Capacitación</h3>
-                    <p>Formación práctica con filosofía CO•RA</p>
+                    <h3 class="service-title">Capacitación Equipos</h3>
+                    <p class="service-description">Formación práctica intensiva para desarrolladores y diseñadores con certificación CO•RA incluida.</p>
                     <div class="service-price">$800/día</div>
-                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Reservar</a>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Reservar Fecha</a>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">🚀</div>
-                    <h3>Desarrollo</h3>
-                    <p>Sitios web accesibles desde cero</p>
-                    <div class="service-price">$2,000+</div>
-                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Cotizar</a>
+                    <h3 class="service-title">Desarrollo Completo Premium</h3>
+                    <p class="service-description">Sitios web accesibles desde cero que abrazan la diversidad humana sin optimizarla. Garantía total.</p>
+                    <div class="service-price">Desde $2,000</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Cotizar Proyecto</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section philosophy-section">
+    <!-- Stats Section -->
+    <section class="stats">
         <div class="container">
-            <h2 class="section-title">Filosofía CO•RA</h2>
-            
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <h3>❌ Lo que NO hago</h3>
-                    <ul style="list-style: none;">
-                        <li>• Darte puntos por ser inclusivo</li>
-                        <li>• "Gamificar" la accesibilidad</li>
-                        <li>• Convertirte en métrica</li>
-                        <li>• Decir "¡Excelente trabajo!"</li>
-                    </ul>
-                </div>
-                
-                <div class="philosophy-card">
-                    <h3>✅ Lo que SÍ hago</h3>
-                    <ul style="list-style: none;">
-                        <li>• Me quedo contigo en la confusión</li>
-                        <li>• Busco otra forma cuando no funciona</li>
-                        <li>• Reconozco que la frustración es válida</li>
-                        <li>• Estoy presente sin juzgar</li>
-                    </ul>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">📊 Impacto Real Comprobado</h2>
+                <p class="section-subtitle" style="color: var(--gray-300);">Resultados medibles en accesibilidad web con metodología CO•RA</p>
             </div>
-        </div>
-    </section>
-
-    <section class="section stats">
-        <div class="container">
-            <h2 class="section-title">Impacto Real</h2>
             
             <div class="stats-grid">
                 <div>
                     <span class="stat-number">50+</span>
-                    <div>Sitios Auditados</div>
+                    <div class="stat-label">Sitios Auditados</div>
                 </div>
                 <div>
                     <span class="stat-number">15M+</span>
-                    <div>Usuarios Beneficiados</div>
+                    <div class="stat-label">Usuarios Beneficiados</div>
                 </div>
                 <div>
                     <span class="stat-number">100%</span>
-                    <div>Cumplimiento WCAG</div>
+                    <div class="stat-label">Cumplimiento WCAG</div>
                 </div>
                 <div>
                     <span class="stat-number">$2M+</span>
-                    <div>Ingresos Generados</div>
+                    <div class="stat-label">Ingresos Generados</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section contact">
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
         <div class="container">
-            <h2 class="section-title">¿Listo para la Inclusión Real?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Consulta gratuita de 30 minutos</p>
-            
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>contacto@primeradivision.duckdns.org</p>
-                </div>
+            <div class="contact-content">
+                <h2 class="section-title" style="color: white;">🤝 ¿Listo para la Inclusión Real?</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Consulta gratuita de 30 minutos para evaluar tu proyecto y definir estrategia</p>
                 
-                <div class="contact-method">
-                    <div class="contact-icon">📅</div>
-                    <h3>Agendar</h3>
-                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-outline">Consulta Gratuita</a>
-                </div>
-                
-                <div class="contact-method">
-                    <div class="contact-icon">🌐</div>
-                    <h3>Sitio Web</h3>
-                    <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">CO•RA</a>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Email Directo</h3>
+                        <p style="font-weight: 600;">contacto@primeradivision.duckdns.org</p>
+                        <p>Respuesta garantizada en 24 horas</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">📅</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Agendar Llamada</h3>
+                        <p>Consulta gratuita 30 minutos</p>
+                        <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-outline" style="margin-top: 1rem;">Agendar Ahora</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">🌐</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Ecosistema CO•RA</h3>
+                        <p>Servicios completos disponibles</p>
+                        <a href="http://primeradivision.duckdns.org/" class="btn btn-outline" style="margin-top: 1rem;">Explorar</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Floating CTA -->
     <a href="http://primeradivision.duckdns.org/contacto.html" class="floating-cta">
-        <div class="btn btn-primary">💬 Contactar</div>
+        <div class="btn btn-primary" style="font-size: 1.1rem;">💬 Contactar Ahora</div>
+    </a>
+</body>
+</html>ct-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">JH•CO•RA</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Jorge Hernández</h1>
+                <p class="subtitle">Consultor Premium en Accesibilidad Web CO•RA</p>
+                <p class="philosophy">"No optimizo la diversidad humana. La acompaño."</p>
+                
+                <div class="hero-cta">
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">
+                        📅 Consulta Gratuita 30min
+                    </a>
+                    <a href="http://primeradivision.duckdns.org/" class="btn btn-outline">
+                        🌍 Ecosistema CO•RA
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">♿</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Inclusión Real</h3>
+                    <p style="font-size: 1.1rem;">WCAG 2.1 AA Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🚀 Servicios Premium Especializados</h2>
+                <p class="section-subtitle">Soluciones profesionales en accesibilidad web con metodología CO•RA comprobada</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Auditorías WCAG 2.1 AA</h3>
+                    <p class="service-description">Evaluación exhaustiva de accesibilidad con reporte detallado, plan de acción específico y seguimiento personalizado.</p>
+                    <div class="service-price">$500</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Solicitar Auditoría</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3 class="service-title">Consultoría Estratégica Premium</h3>
+                    <p class="service-description">Acompañamiento personalizado en implementación de accesibilidad real y sostenible con metodología CO•RA.</p>
+                    <div class="service-price">$75/hora</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Agendar Sesión</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3 class="service-title">Capacitación Equipos</h3>
+                    <p class="service-description">Formación práctica intensiva para desarrolladores y diseñadores con certificación CO•RA incluida.</p>
+                    <div class="service-price">$800/día</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Reservar Fecha</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">Desarrollo Completo Premium</h3>
+                    <p class="service-description">Sitios web accesibles desde cero que abrazan la diversidad humana sin optimizarla. Garantía total.</p>
+                    <div class="service-price">Desde $2,000</div>
+                    <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-primary">Cotizar Proyecto</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">📊 Impacto Real Comprobado</h2>
+                <p class="section-subtitle" style="color: var(--gray-300);">Resultados medibles en accesibilidad web con metodología CO•RA</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div>
+                    <span class="stat-number">50+</span>
+                    <div class="stat-label">Sitios Auditados</div>
+                </div>
+                <div>
+                    <span class="stat-number">15M+</span>
+                    <div class="stat-label">Usuarios Beneficiados</div>
+                </div>
+                <div>
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Cumplimiento WCAG</div>
+                </div>
+                <div>
+                    <span class="stat-number">$2M+</span>
+                    <div class="stat-label">Ingresos Generados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title" style="color: white;">🤝 ¿Listo para la Inclusión Real?</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Consulta gratuita de 30 minutos para evaluar tu proyecto y definir estrategia</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Email Directo</h3>
+                        <p style="font-weight: 600;">contacto@primeradivision.duckdns.org</p>
+                        <p>Respuesta garantizada en 24 horas</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">📅</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Agendar Llamada</h3>
+                        <p>Consulta gratuita 30 minutos</p>
+                        <a href="http://primeradivision.duckdns.org/contacto.html" class="btn btn-outline" style="margin-top: 1rem;">Agendar Ahora</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">🌐</div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Ecosistema CO•RA</h3>
+                        <p>Servicios completos disponibles</p>
+                        <a href="http://primeradivision.duckdns.org/" class="btn btn-outline" style="margin-top: 1rem;">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <a href="http://primeradivision.duckdns.org/contacto.html" class="floating-cta">
+        <div class="btn btn-primary" style="font-size: 1.1rem;">💬 Contactar Ahora</div>
     </a>
 </body>
 </html>

@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Jorge Hernández - Portfolio
 
-# Run and deploy your AI Studio app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2eac4a6d-202f-4a14-9d6e-a677bc6ece5c/deploy-status)](https://app.netlify.com/projects/jorge-hernandez/deploys)
 
-This contains everything you need to run your app locally.
+## 🌐 Live Sites
+- **GitHub Pages**: https://ente56298.github.io/Jorge-Hernandez/
+- **Netlify**: https://jorge-hernandez.netlify.app/
 
-View your app in AI Studio: https://ai.studio/apps/drive/1uGgsfVGAUXUPKy_nkdlRy7SlXMLolITo
+## 🧪 CO•RA Ecosystem Integration
+Portafolio profesional destacando el **Ecosistema CO•RA** como proyecto principal.
 
-## Run Locally
+### 🚀 Proyectos Destacados
+- **CO•RA: El Umbral** - Ecosistema Cognitivo Inclusivo
+- **Dashboard de Coherencia** - Análisis con IA contextual
+- **PAE 2025 Evaluator** - Evaluador Municipal con IA
+- **Visor MIR** - Vinculación Programas-Proyectos-MIR
 
-**Prerequisites:**  Node.js
+### 🛠️ Tecnologías
+- HTML5 + CSS3
+- Tailwind CSS
+- Responsive Design
+- Gemini AI Integration
 
+### 📊 Deploy Status
+- **Netlify**: Automático desde este repositorio
+- **GitHub Pages**: Habilitado
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+*Especialista en IA y Ecosistemas Digitales | Creador del Ecosistema CO•RA*
